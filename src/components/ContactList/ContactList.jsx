@@ -9,6 +9,10 @@ const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
+  if (contacts.length === 0) {
+    return <p className={css.message}>No contacts found</p>;
+  }
+
   return (
     <ul className={css.list}>
       {contacts.map(({ id, name, number }) => (
